@@ -3,7 +3,6 @@
 	import IconSun from '$lib/icons/sun.svg';
 	import IconHash from '$lib/icons/hash.svg';
 	import Button from './Button.svelte';
-	import HeaderIcon from '$lib/icons/logo.png';
 	import Tag from './Tag.svelte';
 
 	const onToggleDarkMode = () => {
@@ -23,7 +22,7 @@
 	<div class="inner-head">
 		<nav class="left">
 			<a class="logo" href="/">
-				<HeaderIcon width="180" />
+				<img src="/logo.png" width="180" />
 			</a>
 		</nav>
 		<div />

@@ -52,7 +52,7 @@
 	<section>
 		<p>
 			Our team at StalkingAId is passionate about using technology to solve real-world problems, and
-			that's how we came together at the <a class="styled" href="https://academy.unternehmertum.de/programs/tech-challenge"
+			that's how we came together at the <a class="styled" href="https://academy.unternehmertum.de/programs/tech-challenge" target="_blank" rel="noreferrer"
 				><b>Tech Challenge</b></a>. We recognized the need for a more digitalized and internationalized way for victims of stalking to be
 			informed about aid, and we were determined to create a solution.
 		</p>
@@ -90,7 +90,7 @@
 		}
 
 		:global(.container) {
-			min-height: 80vh;
+			min-height: 95vh;
 			justify-content: center;
 		}
 
