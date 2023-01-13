@@ -1,5 +1,5 @@
 const express = require('express');
-const https = require('https');
+const http = require('http');
 const fs = require("fs");
 const cors = require("cors");
 bodyParser = require('body-parser');
@@ -21,14 +21,10 @@ app.route("/chat").post((req, res) => {
   getResponse(history, msg, res);
 });
 
-https
-  .createServer({
-    key: fs.readFileSync("/etc/letsencrypt/live/stalkingaid.org/privkey.pem", "utf8"),
-    cert: fs.readFileSync("/etc/letsencrypt/live/stalkingaid.org/cert.pem", "utf8"),
-    ca: fs.readFileSync("/etc/letsencrypt/live/stalkingaid.org/chain.pem", "utf8"),
-  }, app)
-  .listen(8543, ()=>{
-    console.log('server is runing at port 8543')
+http
+  .createServer(app)
+  .listen(8080, ()=>{
+    console.log('server is runing at port 8080')
   });
 
 async function getResponse(history, msg, res) {
