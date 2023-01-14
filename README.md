@@ -21,12 +21,9 @@ OpenAI: A leading artificial intelligence research laboratory
 ## Deployment
 
 ### Getting Started
-Clone the repository: `git clone git@github.com:wasnertobias/StalkingAId.git`
-Install dependencies: `pnpm install`
-Run the development server: `pnpm run dev`
-
-Build the production version of the app: `pnpm run build`
-Deploy the built app to your preferred hosting platform (e.g. GitHub Pages, AWS, etc.)
+Clone the repository: `git clone https://github.com/wasnertobias/StalkingAId.git`
+Do configure OpenAI-API-key in docker-compose.yml
+Launch docker containers: `docker-compose up -d`
 
 ## Contribution
 If you would like to contribute to the development of this digital assistant, please fork the repository and submit a pull request. All contributions are welcome!
