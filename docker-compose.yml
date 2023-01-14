@@ -12,6 +12,7 @@ services:
     container_name: "backend"
     environment:
       - OPEN_AI_API_KEY=
+      - ACCESS_TOKEN=
     build:
       context: ./backend
     ports:

@@ -35,6 +35,7 @@
 		"postcss": "^8.4.21",
 		"postcss-jit-props": "^1.0.9",
 		"sass": "^1.57.1",
-		"vite": "^4.0.0"
+		"vite": "^4.0.0",
+		"autoprefixer": "10.4.13"
 	}
 }

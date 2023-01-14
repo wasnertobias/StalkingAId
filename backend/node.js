@@ -17,7 +17,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.route("/chat").post((req, res) => {
-  const {history, msg} = req.body;
+  const {token, history, msg} = req.body;
+
+  if (token !== process.env.ACCESS_TOKEN) {
+    return;
+  }
+
   getResponse(history, msg, res);
 });
 
