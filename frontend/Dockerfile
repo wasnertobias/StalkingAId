@@ -1,25 +1,14 @@
-FROM node:latest AS base
+FROM node:latest
 
 RUN npm i -g pnpm
 
-FROM base AS dependencies
-
 WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install
+COPY pnpm-lock.yaml ./
+RUN pnpm fetch
 
-FROM base AS build
+ADD . ./
+RUN pnpm install --offline
 
-WORKDIR /app
-COPY . .
-COPY --from=dependencies /app/node_modules ./node_modules
-RUN pnpm build
-RUN pnpm prune --prod
-
-FROM base AS deploy
-
-WORKDIR /app
-COPY --from=dependencies /app/package.json ./
-COPY --from=build /app/node_modules ./node_modules
+RUN pnpm run build
 
 CMD [ "pnpm", "preview", "--host" ]
