@@ -51,5 +51,7 @@ By default the frontend server runs locally on port 25543 and the backend server
         proxy_redirect off;
     }
 ```
+
+Updates: Can be realized with re-building the docker containers `docker-compose build` and re-starting them `docker-compose up -d`
 ## Contribution
 If you would like to contribute to the development of this digital assistant, please fork the repository and submit a pull request. All contributions are welcome!
