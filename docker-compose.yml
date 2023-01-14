@@ -6,7 +6,7 @@ services:
     build:
       context: ./frontend
     ports:
-      - 25543:5173
+      - 25543:4173
 
   backend:
     container_name: "backend"
