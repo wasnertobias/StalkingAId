@@ -22,4 +22,4 @@ WORKDIR /app
 COPY --from=dependencies /app/package.json ./
 COPY --from=build /app/node_modules ./node_modules
 
-CMD [ "pnpm", "preview" ]
+CMD [ "pnpm", "preview", "--host" ]
