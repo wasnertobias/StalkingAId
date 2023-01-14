@@ -22,8 +22,12 @@ OpenAI: A leading artificial intelligence research laboratory
 
 ### Getting Started
 Clone the repository: `git clone https://github.com/wasnertobias/StalkingAId.git`
+
 Do configure OpenAI-API-key in docker-compose.yml
+
 Launch docker containers: `docker-compose up -d`
+
+By default the frontend server runs locally on port 25543 and the backend server locally on port 25544. Both are not exposed to any external network interfaces. Thus more configuration (e.g. a HTTPS reverse Proxy using nginx) is needed. Example configuration:
 
 ## Contribution
 If you would like to contribute to the development of this digital assistant, please fork the repository and submit a pull request. All contributions are welcome!
