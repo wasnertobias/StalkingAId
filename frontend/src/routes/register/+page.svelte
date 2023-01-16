@@ -6,6 +6,18 @@
 	import Input from '$lib/components/Input.svelte';
 	import Liquid from '$lib/components/Liquid.svelte';
 	import Notification from '$lib/components/Notification.svelte';
+
+	let token: string | undefined = undefined;
+
+	const onLogin = (evt: MouseEvent) => {
+		if (!token) {
+			evt.preventDefault();
+			evt.stopPropagation();
+
+			return;
+		}
+		localStorage.setItem('token', token ?? '');
+	};
 </script>
 
 <Container centered>
@@ -18,8 +30,8 @@
 			<form>
 				<section>
 					<h2>Login</h2>
-					<input placeholder="Access token" type="password" />
-					<Button primary>Login</Button>
+					<input placeholder="Access token" type="password" bind:value={token} />
+					<a href="/chat" on:click={onLogin}><Button>Login</Button></a>
 				</section>
 			</form>
 		</Card>

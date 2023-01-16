@@ -23,6 +23,11 @@ app.route("/chat").post((req, res) => {
     return;
   }
 
+  if (msg.length === 0) {
+    res.status(200).end(true);
+    return;
+  }
+
   getResponse(history, msg, res);
 });
 
@@ -63,7 +68,7 @@ async function getResponse(history, msg, res) {
   history = history + '\nHuman: ' + msg;
 
   const prompt = staticPrefix + '\n' + history;
-  console.log("sending to openai: " + prompt);
+  // console.log("sending to openai: " + prompt);
 
   try {
     const response = await openai.createCompletion({
@@ -77,7 +82,7 @@ async function getResponse(history, msg, res) {
       stop: [" Human:", " AI:"],
     });
     const stringResponse = JSON.stringify(response.data);
-    console.log("got from openai: " + stringResponse);
+    // console.log("got from openai: " + stringResponse);
     res.status(200).end(history + response.data.choices[0].text);
   } catch(error) {
     console.error(error.response.status, error.response.data);
