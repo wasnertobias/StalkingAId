@@ -85,6 +85,7 @@ async function getResponse(history, res) {
     })
     res.status(200).end(history);
   } catch(error) {
+    console.error(error);
     console.error(error.response.status, error.response.data);
     res.status(error.response.status).json(error.response.data);
   }
