@@ -7,16 +7,14 @@ const app = express();
 app.use(cors({
   origin: 'https://stalkingaid.org'
 }));
-
  
 // support parsing of application/json type post data
 app.use(bodyParser.json());
 
-//support parsing of application/x-www-form-urlencoded post data
-app.use(bodyParser.urlencoded({ extended: true }));
-
 app.route("/api/chat").post((req, res) => {
   const {token, history} = req.body;
+
+  console.log(req.body);
 
   if (token !== process.env.ACCESS_TOKEN) {
     return;
@@ -66,6 +64,7 @@ async function getResponse(history, res) {
 
   // history: {msg: string, ai: boolean}[]
   const prompt = staticPrefix + '\n' + history.map(hist => hist.msg).join("\n");
+  console.log("prompt: " + prompt);
 
   try {
     const response = await openai.createCompletion({
