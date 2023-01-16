@@ -16,18 +16,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.route("/api/chat").post((req, res) => {
-  const {token, history, msg} = req.body;
+  const {token, history} = req.body;
 
   if (token !== process.env.ACCESS_TOKEN) {
     return;
   }
 
-  if (msg.length === 0) {
+  if (history.length === 0) {
     res.status(200).end(true);
     return;
   }
 
-  getResponse(history, msg, res);
+  getResponse(history, res);
 });
 
 http
@@ -36,7 +36,7 @@ http
     console.log('server is runing at port 8080')
   });
 
-async function getResponse(history, msg, res) {
+async function getResponse(history, res) {
   var staticPrefix = "The following is a chat conversation with an AI assistant for victims of stalking crimes and relatives. The assistant is helpful and very empathic and should response with short messages."
   +"\nContact free, anonymous but only german speaking telephone helpline 'Telefonseelsorge' https://www.telefonseelsorge.de (telephone number 0800.1110111 or 0800.111.0222; international helplines could be found here: https://www.telefonseelsorge.de/international-helplines) if you need someone to talk."
   +"\nContact free helpline from WEISSER RING (116 006, available from 7 to 22 o'clock)"
@@ -64,10 +64,8 @@ async function getResponse(history, msg, res) {
   });
   const openai = new OpenAIApi(configuration);
 
-  history = history + '\nHuman: ' + msg;
-
-  const prompt = staticPrefix + '\n' + history;
-  // console.log("sending to openai: " + prompt);
+  // history: {msg: string, ai: boolean}[]
+  const prompt = staticPrefix + '\n' + history.map(hist => hist.msg).join("\n");
 
   try {
     const response = await openai.createCompletion({
@@ -78,11 +76,14 @@ async function getResponse(history, msg, res) {
       top_p: 1,
       frequency_penalty: 0.5,
       presence_penalty: 0.6,
-      stop: [" Human:", " AI:"],
+      stop: ["\n"],
     });
     const stringResponse = JSON.stringify(response.data);
-    // console.log("got from openai: " + stringResponse);
-    res.status(200).end(history + response.data.choices[0].text);
+    history.push({
+      msg: response.data.choices[0].text,
+      ai: true
+    })
+    res.status(200).end(history);
   } catch(error) {
     console.error(error.response.status, error.response.data);
     res.status(error.response.status).json(error.response.data);

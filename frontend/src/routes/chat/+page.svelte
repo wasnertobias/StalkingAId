@@ -11,7 +11,9 @@
 
 	let token: string = '';
 	let msg: string | undefined = undefined;
-	let history: string | undefined = undefined;
+	let history: {
+		msg: string, ai: boolean
+	}[] = [];
 
 	onMount(() => {
 		token = localStorage.getItem('token') ?? '';
@@ -23,10 +25,13 @@
 		}
 
 		// TODO: Loading animation!
+		history.push({
+			msg: msg,
+			ai: false
+		});
 
 		jQuery.post("https://" + window.location.hostname + "/api/chat", {
 			history: history,
-			msg: msg,
 			token: token
 		}).done(function (data: any) {
 			history = data;
@@ -46,7 +51,10 @@
 			<form>
 				<section>
 					<h2>Chatbot</h2>
-						<textarea bind:value={history} disabled />
+						{#each history as { msg, ai }}
+							<h5 class={ai ? 'ai' : ''}>{msg}</h5>
+							<br />
+						{/each}
 						<input id="chatbot-input" type="text" placeholder="Type your message here..." bind:value={msg} on:keyup={keyUp} />
 						<Button on:click={sendRequest}>Send</Button>
 				</section>
@@ -66,5 +74,8 @@
 	textarea {
 		width: 100%;
 		height: 50vh;
+	}
+	.ai {
+		font-weight: bold;
 	}
 </style>
