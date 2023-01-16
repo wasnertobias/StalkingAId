@@ -30,12 +30,17 @@
 			ai: false
 		});
 
-		jQuery.post("https://" + window.location.hostname + "/api/chat", {
-			history: history,
-			token: token
-		}).done(function (data: any) {
-			history = data;
-			msg = "";
+		jQuery.ajax("https://" + window.location.hostname + "/api/chat", {
+			data : JSON.stringify({
+				history: history,
+				token: token
+			}),
+			contentType : 'application/json',
+			type : 'POST',
+			success: function(data: any) {
+				history = data;
+				msg = "";
+			}
 		});
 	}
 	function keyUp (e: { key: string; keyCode: number; }) {
