@@ -8,12 +8,14 @@
 	import Liquid from '$lib/components/Liquid.svelte';
 	import Notification from '$lib/components/Notification.svelte';
 	import jQuery from 'jquery';
+	import ButtonGroup from '$lib/components/ButtonGroup.svelte';
 
 	let token: string = '';
 	let msg: string | undefined = undefined;
 	let history: {
 		msg: string, ai: boolean
 	}[] = [];
+	let loading = false;
 
 	onMount(() => {
 		token = localStorage.getItem('token') ?? '';
@@ -24,11 +26,11 @@
 			return;
 		}
 
-		// TODO: Loading animation!
 		history.push({
 			msg: msg,
 			ai: false
 		});
+		loading = true;
 
 		jQuery.ajax("https://" + window.location.hostname + "/api/chat", {
 			data : JSON.stringify({
@@ -40,6 +42,7 @@
 			success: function(data: any) {
 				history = data;
 				msg = "";
+				loading = false;
 			}
 		});
 	}
@@ -50,18 +53,19 @@
 	};
 </script>
 
-<Container centered>
+<Container centered {loading}>
 	<p>
 		<Card background={false}>
 			<form>
 				<section>
 					<h2>Chatbot</h2>
 						{#each history as { msg, ai }}
-							<h5 class={ai ? 'ai' : ''}>{msg}</h5>
-							<br />
+							<p class={ai ? 'ai' : ''}>{msg}</p>
 						{/each}
 						<input id="chatbot-input" type="text" placeholder="Type your message here..." bind:value={msg} on:keyup={keyUp} />
-						<Button on:click={sendRequest}>Send</Button>
+						<ButtonGroup>
+							<Button on:click={sendRequest}>Send</Button>
+						</ButtonGroup>
 				</section>
 			</form>
 		</Card>
