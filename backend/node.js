@@ -64,7 +64,6 @@ async function getResponse(history, res) {
 
   // history: {msg: string, ai: boolean}[]
   const prompt = staticPrefix + '\n' + history.map(hist => hist.msg).join("\n");
-  console.log("prompt: " + prompt);
 
   try {
     const response = await openai.createCompletion({
@@ -74,17 +73,15 @@ async function getResponse(history, res) {
       max_tokens: 500,
       top_p: 1,
       frequency_penalty: 0.5,
-      presence_penalty: 0.6,
-      stop: ["\n"],
+      presence_penalty: 0.6
     });
-    console.log("got from openai: " + JSON.stringify(response.data));
+    // console.log("got from openai: " + JSON.stringify(response.data));
     history.push({
       msg: response.data.choices[0].text,
       ai: true
     })
     res.status(200).json(history).end();
   } catch(error) {
-    console.error(error);
     console.error(error.response.status, error.response.data);
     res.status(error.response.status).json(error.response.data);
   }
