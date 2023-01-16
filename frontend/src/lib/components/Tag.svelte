@@ -2,7 +2,7 @@
 	let className: string | undefined = undefined;
 	export { className as class };
 
-	type TagType = 'primary' | 'secondary' | 'disabled';
+	type TagType = 'primary' | 'disabled';
 
 	export let kind: TagType = 'primary';
 
@@ -10,8 +10,6 @@
 		switch (type) {
 			case 'primary':
 				return 'var(--color-primary)';
-			case 'secondary':
-				return 'var(--color-secondary)';
 			case 'disabled':
 				return 'rgba(var(--color-primary-raw), 0.2)';
 			default:
@@ -23,8 +21,6 @@
 		switch (category) {
 			case 'primary':
 				return 'var(--color-background)';
-			case 'secondary':
-				return 'var(--color-secondary)';
 			case 'disabled':
 				return 'var(--color-foreground-light)';
 			default:
