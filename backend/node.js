@@ -83,7 +83,7 @@ async function getResponse(history, res) {
       msg: response.data.choices[0].text,
       ai: true
     })
-    res.status(200).end(history);
+    res.status(200).json(history).end();
   } catch(error) {
     console.error(error);
     console.error(error.response.status, error.response.data);
