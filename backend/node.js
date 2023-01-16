@@ -78,7 +78,7 @@ async function getResponse(history, res) {
       presence_penalty: 0.6,
       stop: ["\n"],
     });
-    const stringResponse = JSON.stringify(response.data);
+    console.log("got from openai: " + JSON.stringify(response.data));
     history.push({
       msg: response.data.choices[0].text,
       ai: true
