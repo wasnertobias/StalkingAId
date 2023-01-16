@@ -24,7 +24,7 @@
 
 		// TODO: Loading animation!
 
-		jQuery.post("https://" + window.location.hostname + "/api", {
+		jQuery.post("https://" + window.location.hostname + "/api/chat", {
 			history: history,
 			msg: msg,
 			token: token
