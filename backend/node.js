@@ -1,6 +1,5 @@
 const express = require('express');
 const http = require('http');
-const fs = require("fs");
 const cors = require("cors");
 bodyParser = require('body-parser');
 const app = express();
@@ -16,7 +15,7 @@ app.use(bodyParser.json());
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.route("/chat").post((req, res) => {
+app.route("/api/chat").post((req, res) => {
   const {token, history, msg} = req.body;
 
   if (token !== process.env.ACCESS_TOKEN) {
