@@ -1,5 +1,5 @@
 
-[![StalkingAId](https://stalkingaid.org/logo.png)](https://stalkingaid.org)
+[![StalkingAId](https://stalkingaid.org/logo.png?v2)](https://stalkingaid.org)
 
 ## Product not yet ready!
 This project was developed for the [Tech Challenge](https://academy.unternehmertum.de/programs/tech-challenge) and is not production ready in any way!
