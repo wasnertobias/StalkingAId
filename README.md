@@ -19,6 +19,8 @@ Svelte: A modern JavaScript framework for building web applications
 
 OpenAI: A leading artificial intelligence research laboratory
 
+Docker: A software virtualization platform, used for easy deployment 
+
 ## Deployment
 
 ### Getting Started
@@ -52,6 +54,8 @@ By default the frontend server runs locally on port 25543 and the backend server
         proxy_redirect off;
     }
 ```
+
+Note: The backend server is used to call the OpenAI-API and the frontend server is being used to serve the static frontend assets to the browser.
 
 Updates: Can be realized with re-building the docker containers `docker-compose build` and re-starting them `docker-compose up -d`
 ## Contribution
