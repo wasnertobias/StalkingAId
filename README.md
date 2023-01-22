@@ -26,7 +26,7 @@ Docker: A software virtualization platform, used for easy deployment
 ### Getting Started
 Clone the repository: `git clone https://github.com/wasnertobias/StalkingAId.git`
 
-Do configure `OPEN_AI_API_KEY` and `ACCESS_TOKEN` in the predefined docker-compose.yml
+Do configure `OPEN_AI_API_KEY` and `ACCESS_TOKEN` (used to secure the access of the backend server, as it is currently not publicly accessible) in the predefined docker-compose.yml
 
 Launch docker containers: `docker-compose up -d`
 
