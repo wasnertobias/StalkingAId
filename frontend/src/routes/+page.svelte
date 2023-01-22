@@ -26,10 +26,23 @@
 			It can involve phone calls, messages, lurking, following, SMS messages, emails, letters,
 			gifts, threats, insults, property damage, and coercion.
 			<b>Cyberstalking</b> refers to stalking in the digital world, such as through emails, messaging services,
-			chats, and social media. The consequences of stalking can include psychological stress symptoms
+			chats, and social media - the boundary to Stalking is fluid.
+			The consequences of stalking can include psychological stress symptoms
 			such as sleep problems, nightmares, gastrointestinal problems, concentration problems, fear, panic attacks,
 			depression, cardiovascular disorders, and limitations on daily life. It is important for those affected
-			to <b>seek help</b> in order to end the stalking and restore their safety. We want to help you with that!
+			to <b>seek help</b> and support, including through hotlines, counseling, and support groups in order to end the stalking, restore their safety and wellbeing.
+			We want to help you with that!
+		</p>
+	</section>
+	<section>
+		<h2>Legal options</h2>
+		<p>
+			The legal options for addressing stalking either include seeking a restraining order or pursuing criminal charges.
+			A <b>restraining order</b>, also known as an injunction, can be obtained through the civil court system and prohibits the perpetrator from certain actions.
+			It can be obtained quickly without the need for evidence, but having documentation such as a stalking diary can be helpful.
+			A restraining order is effective in the short term and can help establish a safe distance between the victim and perpetrator.
+			It can also be used to prevent the perpetrator from entering the victim's home or coming within a certain distance of the victim.
+			<b>Criminal charges</b> can be pursued through the criminal justice system and may result in fines or imprisonment for the perpetrator.
 		</p>
 	</section>
 	<section>
@@ -37,7 +50,7 @@
 		<p>
 			Introducing StalkingAId, the innovative <b>AI-powered digital assistant</b> that helps
 			victims of stalking with <b>a empathic first point of contact</b> which provides relevant information. With StalkingAId, you'll
-			have someone who listens to you anonymously, informs about possible helplines and helps take immediate action.
+			have someone who listens to you anonymously, informs about possible actions and helps take these.
 		</p>
 	</section>
 	<section>
