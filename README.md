@@ -16,6 +16,7 @@ This is a web-based digital assistant chatbot system built with Svelte and OpenA
 ## Tech Stack
 
 Svelte: A modern JavaScript framework for building web applications
+
 OpenAI: A leading artificial intelligence research laboratory
 
 ## Deployment
