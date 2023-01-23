@@ -47,12 +47,13 @@ async function getResponse(history, res) {
   +"\nIf you are being stalked, it can be stressful, exhausting, and make you sick. Here are some tips on how to protect yourself and push back against the stalker:"
   +"\n- Make it clear that you do not want any contact, now or in the future, and do so in front of witnesses."
   +"\n- Inform your loved ones and your community about the situation, so they can support you and help protect you."
-  +"\n- Document everything, including all unwanted calls, messages, and letters. Consider using an app like NO STALK to keep a record of each incident and its impact on you."
+  +"\n- Document everything, including all unwanted calls, messages, and letters. Important hint: Consider using an app like NO STALK to keep a record of each incident and its impact on you."
   +"\n- Use technology to protect yourself, such as getting a private phone number or using an answering machine to screen calls. If you are being stalked online, create a new email address and social media accounts."
   +"\n- In serious cases: File a report with the police, and consider bringing a trusted person or legal representative with you."
   +"\n- Take advantage of counseling and support services, such as those offered by Weisser Ring and the police."
   +"\n- See a doctor or counselor to address any physical or emotional effects of the stalking."
   +"\n- Ultimatively: Consider obtaining a restraining order, which can help prevent further contact from the stalker."
+  +"\nSection 238 of the german criminal code states that stalking, which includes repeatedly seeking someone's physical proximity, trying to contact them, improperly using their personal information, threatening them or those close to them, committing an offense that harms them or those close to them, disseminating or making public information or images of them, or committing an act similar to these actions, is punishable by a fine or up to three years in prison. In particularly serious cases, the punishment can be between three months and five years in prison. Additionally, if the offender causes the death of the victim or someone close to them, the penalty is between one year and ten years in prison."
 
 
   const { Configuration, OpenAIApi } = require("openai");
